@@ -231,21 +231,21 @@
 
   // Icon specs
   var busIcon = L.icon({
-    iconUrl: '/YellowBus.png',
+    iconUrl: 'YellowBus.png',
     iconSize: [32, 40],
     iconAnchor: [16, 20],
   });
 
   // Icon specs
   var busIcon2 = L.icon({
-    iconUrl: '/BlueBus.png',
+    iconUrl: 'BlueBus.png',
     iconSize: [15, 40],
     iconAnchor: [16, 20],
   });
 
   // Create a custom icon for the station using SVG content
 const stationIcon = L.icon({
-  iconUrl: '/BusStation.svg',
+  iconUrl: 'BusStation.svg',
   iconSize: [22, 22],
   iconAnchor: [15, 15],
 });
