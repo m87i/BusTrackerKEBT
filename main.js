@@ -5,6 +5,8 @@
   const busLayer2 = L.geoJSON().addTo(map);
   let busMarkers = [];
   let currentCoordinateIndex1 = 0;
+  let busTemp, stationTemp = 22;
+  let  busOcc, stationOcc = 3;
 
     // Initialize global variables for the second bus
     // const busLayer2 = L.geoJSON().addTo(map);
@@ -86,142 +88,40 @@
         "properties": {},
         "geometry": {
           "coordinates": [
-            [
-              50.14894422334157,
-              26.312192588348864
-            ],
-            [
-              50.15025885105524,
-              26.313970454748343
-            ],
-            [
-              50.15052749236986,
-              26.314482803113975
-            ],
-            [
-              50.15055035546101,
-              26.31526156829017
-            ],
-            [
-              50.15004736751928,
-              26.31619915328085
-            ],
-            [
-              50.149247159345464,
-              26.31725969148505
-            ],
-            [
-              50.1489042129856,
-              26.317541475366028
-            ],
-            [
-              50.148481245808426,
-              26.31757221538409
-            ],
-            [
-              50.146597113524166,
-              26.316696359460465
-            ],
-            [
-              50.14558951706579,
-              26.316219213117805
-            ],
-            [
-              50.14187850926419,
-              26.315237647550106
-            ],
-            [
-              50.139505912844925,
-              26.314630980576965
-            ],
-            [
-              50.13892416674486,
-              26.314133375583097
-            ],
-            [
-              50.138756866162964,
-              26.31362890369887
-            ],
-            [
-              50.13883671366739,
-              26.31320968504872
-            ],
-            [
-              50.13926256338712,
-              26.311997492407286
-            ],
-            [
-              50.139334806367174,
-              26.31121357534309
-            ],
-            [
-              50.13903823470528,
-              26.31028991307086
-            ],
-            [
-              50.13907245506488,
-              26.309390098904885
-            ],
-            [
-              50.1400650559188,
-              26.307819821653624
-            ],
-            [
-              50.14252510806347,
-              26.305699755282973
-            ],
-            [
-              50.143099248606404,
-              26.304152285202136
-            ],
-            [
-              50.14372281958913,
-              26.303975040244637
-            ],
-            [
-              50.14574562302181,
-              26.30396140600618
-            ],
-            [
-              50.14724839409922,
-              26.30399208867091
-            ],
-            [
-              50.14852975642427,
-              26.304551090995687
-            ],
-            [
-              50.149303513040365,
-              26.30527796481772
-            ],
-            [
-              50.1496000894837,
-              26.30627324872465
-            ],
-            [
-              50.149434599290345,
-              26.307556131736234
-            ],
-            [
-              50.148760304888015,
-              26.308828747455067
-            ],
-            [
-              50.14858920268779,
-              26.30996715335641
-            ],
-            [
-              50.148288823982284,
-              26.31043410092127
-            ],
-            [
-              50.148395287321904,
-              26.31101352229041
-            ],
-            [
-              50.14894469570274,
-              26.312195900685296
-            ]
+            [50.14894422334157,26.312192588348864],
+            [50.15025885105524,26.313970454748343],
+            [50.15052749236986,26.314482803113975],
+            [50.15055035546101,26.31526156829017],
+            [50.15004736751928,26.31619915328085],
+            [50.149247159345464,26.31725969148505],
+            [50.1489042129856,26.317541475366028],
+            [50.148481245808426,26.31757221538409],
+            [50.146597113524166,26.316696359460465],
+            [50.14558951706579,26.316219213117805],
+            [50.14187850926419,26.315237647550106],
+            [50.139505912844925,26.314630980576965],
+            [50.13892416674486,26.314133375583097],
+            [50.138756866162964,26.31362890369887],
+            [50.13883671366739,26.31320968504872],
+            [50.13926256338712,26.311997492407286],
+            [50.139334806367174,26.31121357534309],
+            [50.13903823470528,26.31028991307086],
+            [50.13907245506488,26.309390098904885],
+            [50.1400650559188,26.307819821653624],
+            [50.14252510806347,26.305699755282973],
+            [50.143099248606404,26.304152285202136],
+            [50.14372281958913,26.303975040244637],
+            [50.14574562302181,26.30396140600618],
+            [50.14724839409922,26.30399208867091],
+            [50.14852975642427,26.304551090995687],
+            [50.149303513040365,26.30527796481772],
+            [50.1496000894837,26.30627324872465],
+            [50.149434599290345,26.307556131736234],
+            [50.148760304888015,26.308828747455067],
+            [50.14858920268779,26.30996715335641],
+            [50.148288823982284,26.31043410092127],
+            [50.148395287321904,26.31101352229041],
+            [50.14894469570274,26.312195900685296]
           ],
           "type": "LineString"
         }
@@ -231,72 +131,76 @@
 
   // Icon specs
   var busIcon = L.icon({
-    iconUrl: 'YellowBus.png',
-    iconSize: [32, 40],
-    iconAnchor: [16, 20],
-  });
+      iconUrl: '/YellowBus.png',
+      iconSize: [32, 40],
+      iconAnchor: [16, 20],
+    });
 
   // Icon specs
   var busIcon2 = L.icon({
-    iconUrl: 'BlueBus.png',
+    iconUrl: '/BlueBus.png',
     iconSize: [15, 40],
     iconAnchor: [16, 20],
   });
-
+  
+  
+  
   // Create a custom icon for the station using SVG content
 const stationIcon = L.icon({
-  iconUrl: 'BusStation.svg',
+  iconUrl: '/BusStation.svg',
   iconSize: [22, 22],
   iconAnchor: [15, 15],
 });
+
+
 
 // Create a marker for the station with the custom icon
 const stationMarker = L.marker([26.314886140990225, 50.14668963955796], {
   icon: stationIcon,
 }).addTo(map);
-stationMarker.bindPopup("Station 1");
-  
+stationMarker.bindPopup(`Station 1 - Occupancy: ${stationOcc}, Temperature: ${stationTemp}°C`);
+
 // Create a marker for the station with the custom icon
 const stationMarker2 = L.marker([26.314545024036093, 50.14519989170711], {
   icon: stationIcon,
 }).addTo(map);
-stationMarker2.bindPopup("Station 2");
+stationMarker2.bindPopup(`Station 2 - Occupancy: ${stationOcc}, Temperature: ${stationTemp}°C`);
 
 // Create a marker for the station with the custom icon
 const stationMarker3 = L.marker([26.314056326995185, 50.14341601319251], {
   icon: stationIcon,
 }).addTo(map);
-stationMarker3.bindPopup("Station 3");
+stationMarker3.bindPopup(`Station 3 - Occupancy: ${stationOcc}, Temperature: ${stationTemp}°C`);
 
 // Create a marker for the station with the custom icon
 const stationMarker4 = L.marker([26.31273908591514, 50.1401265670531], {
   icon: stationIcon,
 }).addTo(map);
-stationMarker4.bindPopup("Station 4");
+stationMarker4.bindPopup(`Station 4 - Occupancy: ${stationOcc}, Temperature: ${stationTemp}°C`);
 
 // Create a marker for the station with the custom icon
 const stationMarker5 = L.marker([26.31234256065862, 50.142167985127486], {
   icon: stationIcon,
 }).addTo(map);
-stationMarker5.bindPopup("Station 5");
+stationMarker5.bindPopup(`Station 5 - Occupancy: ${stationOcc}, Temperature: ${stationTemp}°C`);
 
 // Create a marker for the station with the custom icon
 const stationMarker6 = L.marker([26.309759175933507, 50.14399564239329], {
   icon: stationIcon,
 }).addTo(map);
-stationMarker6.bindPopup("Station 6");
+stationMarker6.bindPopup(`Station 6 - Occupancy: ${stationOcc}, Temperature: ${stationTemp}°C`);
 
 // Create a marker for the station with the custom icon
 const stationMarker7 = L.marker([26.30825865234182, 50.145631392142235], {
   icon: stationIcon,
 }).addTo(map);
-stationMarker7.bindPopup("Station 7");
+stationMarker7.bindPopup(`Station 7 - Occupancy: ${stationOcc}, Temperature: ${stationTemp}°C`);
 
 // Create a marker for the station with the custom icon
 const stationMarker8 = L.marker([26.306119062963546, 50.1477375425726], {
   icon: stationIcon,
 }).addTo(map);
-stationMarker8.bindPopup("Station 8");
+stationMarker8.bindPopup(`Station 8 - Occupancy: ${stationOcc}, Temperature: ${stationTemp}°C`);
 
   
 
@@ -338,16 +242,65 @@ stationMarker8.bindPopup("Station 8");
     // Calculate the bearing between current and next coordinates
     const bearing = calculateBearing(currentCoordinate, nextCoordinate);
 
+
     // Create a marker for the bus and set the rotation angle
     const busMarker = L.marker([currentCoordinate[0], currentCoordinate[1]], {
       icon: busIcon,
       rotationAngle: bearing, // Set the rotation angle
     }).addTo(map);
 
+
+    if (currentCoordinate[0] == 26.31273908591514)
+      busOcc = 19;
+      busTemp = 23.2
+
+      switch(currentCoordinate[0]) {
+        case 26.314960532134904:
+          busOcc = 12;
+          busTemp = 23;
+          break;
+
+        case 26.31440517457358:
+          busOcc = 19;
+          busTemp = 23.2
+          break;
+
+        case 26.31393364247822:
+          busOcc = 15;
+          busTemp = 23.1
+          break;
+
+        case 26.31273908591514:
+          busOcc = 22;
+          busTemp = 23.8
+          break;
+
+        case 26.312340897657265:
+          busOcc = 25;
+          busTemp = 24.1
+          break;
+
+        case 26.309763119515367:
+          busOcc = 28;
+          busTemp = 23.8
+          break;
+
+        case 26.30850620475718:
+          busOcc = 17;
+          busTemp = 23.8
+          break;
+
+        case 26.30738889675841:
+          busOcc = 2;
+          busTemp = 22.8
+          break;
+        
+      }
+
     // Bind a popup with the current coordinates
     // busMarker.bindPopup(`Latitude: ${currentCoordinate[0]}, Longitude: ${currentCoordinate[1]}`).openPopup();
 
-    busMarker.bindPopup(`Latitude: ${currentCoordinate[0]}, Longitude: ${currentCoordinate[1]}, occuppancy: 2`);
+    busMarker.bindPopup(`Latitude: ${currentCoordinate[0]}, Longitude: ${currentCoordinate[1]}, Occuppancy: ${busOcc}, Temperature: ${busTemp} C`);
 
 busMarker.on('click', function () {
     busMarker.openPopup();
@@ -362,7 +315,7 @@ busMarker.on('click', function () {
     busLayer.addLayer(busMarker);
 
     // Schedule the next movement after a delay (in milliseconds)
-    setTimeout(moveBusMarker, 3000); // Change 3000 to control the bus speed (3 seconds in this example)
+    setTimeout(moveBusMarker, 5000); // Change 5000 to control the bus speed (3 seconds in this example)
   }
 
   // #############################################################
@@ -390,7 +343,7 @@ busMarker.on('click', function () {
       // Bind a popup with the current coordinates
       // busMarker.bindPopup(`Latitude: ${currentCoordinate[0]}, Longitude: ${currentCoordinate[1]}`).openPopup();
   
-      busMarker.bindPopup(`Latitude: ${currentCoordinate2[1]}, Longitude: ${currentCoordinate2[0]}, occuppancy: 7`);
+      busMarker.bindPopup(`Latitude: ${currentCoordinate2[1]}, Longitude: ${currentCoordinate2[0]}, occuppancy: ${busOcc}, Temperature: ${busTemp} C`);
   
   busMarker.on('click', function () {
       busMarker.openPopup();
@@ -405,7 +358,7 @@ busMarker.on('click', function () {
       busLayer2.addLayer(busMarker);
   
       // Schedule the next movement after a delay (in milliseconds)
-      setTimeout(moveBusMarker2, 3000); // Change 3000 to control the bus speed (3 seconds in this example)
+      setTimeout(moveBusMarker2, 5000); // Change 5000 to control the bus speed (3 seconds in this example)
     }
 
   // // Start moving the bus marker
