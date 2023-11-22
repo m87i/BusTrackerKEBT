@@ -250,9 +250,9 @@ stationMarker8.bindPopup(`Station 8 - Occupancy: ${stationOcc}, Temperature: ${s
     }).addTo(map);
 
 
-    if (currentCoordinate[0] == 26.31273908591514)
+    if (currentCoordinate[0] == 26.31273908591514){
       busOcc = 19;
-      busTemp = 23.2
+      busTemp = 23.2;}
 
       switch(currentCoordinate[0]) {
         case 26.314960532134904:
@@ -262,37 +262,37 @@ stationMarker8.bindPopup(`Station 8 - Occupancy: ${stationOcc}, Temperature: ${s
 
         case 26.31440517457358:
           busOcc = 19;
-          busTemp = 23.2
+          busTemp = 23.2;
           break;
 
         case 26.31393364247822:
           busOcc = 15;
-          busTemp = 23.1
+          busTemp = 23.1;
           break;
 
         case 26.31273908591514:
           busOcc = 22;
-          busTemp = 23.8
+          busTemp = 23.8;
           break;
 
         case 26.312340897657265:
           busOcc = 25;
-          busTemp = 24.1
+          busTemp = 24.1;
           break;
 
         case 26.309763119515367:
           busOcc = 28;
-          busTemp = 23.8
+          busTemp = 23.8;
           break;
 
         case 26.30850620475718:
           busOcc = 17;
-          busTemp = 23.8
+          busTemp = 23.8;
           break;
 
         case 26.30738889675841:
           busOcc = 2;
-          busTemp = 22.8
+          busTemp = 22.8;
           break;
         
       }
